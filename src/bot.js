@@ -85,7 +85,7 @@ class DiscordBot {
 
             const embed = this.createStreamEmbed(streamData);
             await channel.send({ 
-                content: `🔴 **${process.env.TWITCH_CHANNEL}** sta streamando! Andate subito a guardarlo!`,
+                content: `🔴 Andate subito a guardare **${process.env.TWITCH_CHANNEL}** !!! @everyone`,
                 embeds: [embed] 
             });
 
@@ -98,7 +98,7 @@ class DiscordBot {
     createStreamEmbed(streamData) {
         const embed = new EmbedBuilder()
             .setColor('#9146FF')
-            .setTitle(`@everyone ${streamData.user_name} è ora live su Twitch!`)
+            .setTitle(`${streamData.user_name} è ora live su Twitch!`)
             .setURL(`https://www.twitch.tv/${streamData.user_login}`)
             .setDescription(streamData.title || 'Nessun titolo')
             .addFields([
