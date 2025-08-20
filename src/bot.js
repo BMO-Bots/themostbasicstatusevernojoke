@@ -118,7 +118,11 @@ class DiscordBot {
                     inline: true
                 }
             ])
-            .setImage(streamData.thumbnail_url.replace('{width}', '1920').replace('{height}', '1080'))
+            .setImage(
+  streamData.thumbnail_url
+    .replace('{width}', '1920')
+    .replace('{height}', '1080') + `?t=${Date.now()}`
+)
             .setThumbnail(streamData.profile_image_url)
             .setTimestamp()
             .setFooter({ 
